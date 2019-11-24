@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Home } from './routes/Home'
+import { Login } from './routes/Login'
 import { NotFound } from './routes/NotFound'
+import { Registro } from './routes/Registro'
+import { Recuperacion } from './routes/Recuperacion'
+
+
 
 import './index.css';
 
@@ -17,24 +22,24 @@ function App() {
 
             <Switch>
                 <Route exact path="/">
-                    <Home>
-                        <React.Fragment></React.Fragment>
-                    </Home>
+                    <Home />
+                </Route>
+                <Route path="/login">
+                    <Login />
                 </Route>
                 <Route path="/registro">
-
+                    <Registro />
+                </Route>
+                <Route path="/recuperar-contrasena">
+                    <Recuperacion />
                 </Route>
                 <Route path="/menu">
-
                 </Route>
                 <Route path="/menu">
-
                 </Route>
                 <Route path="/menu/pedido">
-
                 </Route>
                 <Route path="/menu/pedido/valoracion">
-
                 </Route>
                 <Route path="*">
                     <NotFound>

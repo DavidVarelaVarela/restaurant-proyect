@@ -1,0 +1,13 @@
+
+
+section#acceso form p{
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 0.5rem;
+    color: var(--white);
+}
+
+section#acceso  nav{
+    margin-top: 5rem;
+    text-align: center;
+}
