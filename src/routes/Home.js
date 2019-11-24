@@ -4,9 +4,9 @@ import React from 'react';
 export function Home() {
     return (
         <div>
-            <h3>casa</h3>
+            <h3>Home</h3>
             <nav>
-                <Link to="/">Register</Link>
+                <Link to="/registro">Registro</Link>
             </nav>
         </div>
     );
