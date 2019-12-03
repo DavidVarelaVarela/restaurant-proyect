@@ -1,27 +1,26 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+import "../css/home.css"
+
+
 export function Home() {
     return (
         <React.Fragment>
-            <header>
-                <img
-                    src="/img/logo.jpeg"
-                    alt="Logo Mario"
-                />
+            <header className="home">
+                <h1>Aldach Has</h1>
+                <button className="btn call">Avisar camarero</button>
+                <button className="btn shopping-car"><img src="../img/car.png" />" </button>
             </header>
-
-            <section id="home">
-
-
-                <button>Acceder</button>
-
-                <p><Link to="/login">Entrar con mi cuenta</Link> | <Link to="/registro">Regístrate</Link></p>
-                <footer>
-                    <img src=""></img>
-                </footer>
-            </section>
-
+            <main id="home">
+                <form>
+                    <button className="order">Menú</button>
+                </form>
+                <nav>
+                    <Link to="/login">Entrar con mi usuaio</Link>
+                    <Link to="/registro">Registrarme</Link>
+                </nav>
+            </main>
         </React.Fragment >
     );
 }

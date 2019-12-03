@@ -1,0 +1,32 @@
+header.home{
+    display: flex;
+    background-color: var(--green);
+    justify-content:space-between;
+}
+button.call{
+    background-color: rgba(236, 163, 28, 0.2);
+    order: -1;
+    max-width: 4rem;
+    /* background-image: url("../img/car.png"); */
+
+}
+
+
+main#home{
+    height: 100vh;
+    background-image: url("../img/principal.jpeg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registro a{
+    display: block;
+    font-size: 0.7rem;
+    
+}
+input{
+    min-width: 100%;
+}

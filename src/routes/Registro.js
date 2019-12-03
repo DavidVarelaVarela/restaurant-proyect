@@ -1,47 +1,33 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import "./css/registro.css"
+import "../css/registro.css"
 
 export function Registro() {
     return (
         <React.Fragment>
-
             <header>
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Mario_emblem_inverted.svg/1024px-Mario_emblem_inverted.svg.png"
-                    alt="Logo Mario"
-                />
+                <h1>Bievenido a SAS</h1>
             </header>
-
-            <section id="registro" >
+            <main className="registro" id="registro">
+                <h3>Introduce tus datos</h3>
                 <form action="" method="">
-                    <h2>Introduce tus datos</h2>
-
                     <fieldset>
                         <label htmlFor="name">Nombre</label>
-                        <input type="text" name="name" id="name" />
+                        <input type="text" name="name" id="name" placeholder="Enter your name" />
                     </fieldset>
-
                     <fieldset>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email" />
+                        <label htmlFor="email" >Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter your mail" />
                     </fieldset>
-
                     <fieldset>
-                        <label htmlFor="pass1">Contraseña</label>
-                        <input type="password" name="pass1" id="pass1" />
+                        <label htmlFor="pass1" >Contraseña</label>
+                        <input type="password" name="pass1" id="pass1" placeholder="Enter your password" />
                     </fieldset>
-
                     <button>Crear cuenta</button>
-
-                    <p><Link to="/login">Ya tengo cuenta</Link></p>
+                    <Link to="/login">Ya tengo cuenta</Link>
                 </form>
-            </section>
-            <footer>
-                <img src="https://media.giphy.com/media/2A760H1p8R9UNpYCba/giphy.gif" alt="Mario"></img>
-            </footer>
+            </main>
         </React.Fragment>
-
     );
 }
