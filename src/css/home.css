@@ -1,32 +1,63 @@
-header.home{
-    display: flex;
-    background-color: var(--green);
-    justify-content:space-between;
-}
-button.call{
-    background-color: rgba(236, 163, 28, 0.2);
-    order: -1;
-    max-width: 4rem;
-    /* background-image: url("../img/car.png"); */
-
-}
-
-
-main#home{
-    height: 100vh;
+div.home{
     background-image: url("../img/principal.jpeg");
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.5rem;
 }
 
-.registro a{
+header.home{
+    display: flex;
+    justify-content:space-between;
+}
+
+button.call{
+    background-color:rgba(0, 0, 0, 0.4);
+    border: 2px outset var(--white);
+    order: -1;
+    margin: 1rem;
+    width: 3rem;
+    color:var(--white);
+}
+
+button.shopping-cart{
     display: block;
-    font-size: 0.7rem;
-    
+    background-image: url("../img/car.png");
+    background-size: cover;
+    background-color:transparent;
+    border: 2px outset var(--white);
+    margin: 1rem;
+    height: 3rem;
+    width: 3rem;
 }
-input{
-    min-width: 100%;
+
+main#home{
+    align-self: center;
+    text-align: center;
 }
+button.menu{
+width: 10rem;
+height: 2rem;
+background-color:var(--orange);
+border: none;
+font-weight: bold;
+}
+ul.home{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+button.product-menu{
+font-size: 0.7rem;
+width: 4rem;
+height: 1.5rem;
+background-color:rgba(241, 129, 88, 0.7);
+border:2px solid rgba(0, 0, 0, 0.4);
+margin:0.5rem;
+color: white;
+}
+  
+
+

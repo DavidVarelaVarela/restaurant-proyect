@@ -8,14 +8,10 @@
 :root{
     --dark:rgb(0, 0, 0);
     --white:rgb(255, 255, 255);
-    --green:#276218b9;
+    --orange:rgb(207, 104, 66);
 }
 div#root,body{
     font-family: Raleway, sans-serif;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    
 }
 header h1  {
     margin-top: 0.5rem;
@@ -32,6 +28,8 @@ h2,h3,h4,h5,h6{
 a,a:visited{
     text-decoration-line: none;
     color: initial;
+    font-size: 0.8rem;
+    text-transform: uppercase;
 }
 
 fieldset{
@@ -40,9 +38,17 @@ fieldset{
 button,
 input,a {
     cursor: pointer;
+    height:3rem;
     font-family: Raleway, sans-serif;
+    border-radius: 1rem 1rem;
+    transition:  .3s ease-in;
+    
 }
-a{
-    text-transform: uppercase;
-    font-size: 0.8rem;
+button:hover{
+    transform: scale(1.3,1.3);
+    
+}
+
+li{
+   list-style: none;
 }
