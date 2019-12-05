@@ -9,6 +9,8 @@
     --dark:rgb(0, 0, 0);
     --white:rgb(255, 255, 255);
     --orange:rgb(207, 104, 66);
+    --ko: #e92119;
+    --ok: #3c8c20;
 }
 div#root,body{
     font-family: Raleway, sans-serif;
@@ -42,13 +44,20 @@ input,a {
     font-family: Raleway, sans-serif;
     border-radius: 1rem 1rem;
     transition:  .3s ease-in;
-    
 }
+.form-control.ko {
+    color: var(--ko);
+}
+
+.form-control.ok {
+    color: var(--ok);
+} 
+
 button:hover{
     transform: scale(1.3,1.3);
     
 }
 
 li{
-   list-style: none;
+    list-style: none;
 }

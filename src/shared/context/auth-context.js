@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { login } from "../../http/authService";
+import { login, register } from "../../http";
 import { useHistory } from "react-router-dom";
 
 // 1) Creamos el contexto
@@ -28,12 +28,26 @@ export function AuthProvider({ children }) {
     };
 
     // Register => Cambiaré a true
+    const signUp = async ({ name, email, password }) => {
+        try {
+            const {
+                data: { token, user }
+            } = await register({ name, email, password });
+            setUser(user);
+            setIsAuthenticated(true);
+            if (token) {
+                history.push("/");
+            }
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    };
     // Logout => Cambiaré a false
 
     // 2.3) Devolvemos el Context
     return (
         <AuthContext.Provider
-            value={{ isAuthenticated, setIsAuthenticated, signIn }}
+            value={{ isAuthenticated, setIsAuthenticated, signIn, user, signUp }}
         >
             {children}
         </AuthContext.Provider>
