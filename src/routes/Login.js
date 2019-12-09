@@ -40,13 +40,13 @@ function Login() {
     };
 
     return (
-        <React.Fragment>
-            <main className="registro" id="login">
+        <div id="registro">
+            <main className="registro" >
                 <h3>Introdute tus datos</h3>
                 <form onSubmit={handleSubmit(handleSignin)}>
-                    <fieldset className={`form ${isFieldValid("email")}`}>
-                        <label>Email</label>
-                        <input
+                    <fieldset className={`form-control ${isFieldValid("email")}`}>
+                        <label >Email</label>
+                        <input className="registro"
                             ref={register({
                                 required: "The email is required",
                                 pattern: {
@@ -65,7 +65,7 @@ function Login() {
                     </fieldset>
                     <fieldset className={`form-control ${isFieldValid("password")}`}>
                         <label>Password</label>
-                        <input
+                        <input className="registro"
                             ref={register({
                                 required: "The password should be in place",
                                 minLength: {
@@ -91,10 +91,9 @@ function Login() {
                     </button>
                     <Link to="/registro">Registrarse</Link>
                     <Link to="/recuperar-contrasena">Recuperar contraseña</Link>
-                    <Link to="/">Volver al inicio</Link>
                 </form>
             </main>
-        </React.Fragment>
+        </div>
     );
 }
 

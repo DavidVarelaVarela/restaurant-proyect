@@ -1,12 +1,21 @@
-
-section#acceso{
-}
-section#acceso form p{
-    text-align: center;
+div#registro{
+    background-image: url("../img/mix-2.jpeg");
+    background-size: cover;
 }
 
-section#acceso  nav{
-    text-align: center;
+main.registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-section#acceso  a{
+
+input.registro{
+    margin: 0.5rem 0;
+    height: 1.5rem;
+}
+fieldset > label{
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
 }

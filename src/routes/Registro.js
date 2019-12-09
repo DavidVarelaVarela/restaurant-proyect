@@ -27,16 +27,13 @@ export function Registro() {
         });
     };
     return (
-        <React.Fragment>
-            <header>
-                <h1>Bievenido a SAS</h1>
-            </header>
-            <main className="registro" id="registro">
+        <div id="registro">
+            <main className="registro" >
                 <h3>Introduce tus datos</h3>
                 <form onSubmit={handleSubmit(handleSignUp)}>
-                    <div className={`form-control ${getColor("name")}`}>
+                    <fieldset className={`form-control ${getColor("name")}`}>
                         <label>Name</label>
-                        <input
+                        <input className="registro"
                             ref={register({
                                 required: "The name is required"
                             })}
@@ -48,10 +45,10 @@ export function Registro() {
                         <span className="errorMessage">
                             {errors.name && errors.name.message}
                         </span>
-                    </div>
-                    <div className={`form-control ${getColor("email")}`}>
+                    </fieldset>
+                    <fieldset className={`form-control ${getColor("email")}`}>
                         <label>Email</label>
-                        <input
+                        <input className="registro"
                             ref={register({
                                 required: "The email is required",
                                 pattern: {
@@ -67,10 +64,10 @@ export function Registro() {
                         <span className="errorMessage">
                             {errors.email && errors.email.message}
                         </span>
-                    </div>
-                    <div className={`form-control ${getColor("password")}`}>
+                    </fieldset>
+                    <fieldset className={`form-control ${getColor("password")}`}>
                         <label>Password</label>
-                        <input
+                        <input className="registro"
                             ref={register({
                                 required: "The password should be in place",
                                 minLength: {
@@ -86,7 +83,7 @@ export function Registro() {
                         <span className="errorMessage">
                             {errors.password && errors.password.message}
                         </span>
-                    </div>
+                    </fieldset>
                     <div className="btn-container">
                         <button
                             type="submit"
@@ -99,6 +96,6 @@ export function Registro() {
                     <Link to="/login">Ya tengo cuenta</Link>
                 </form>
             </main>
-        </React.Fragment>
+        </div>
     );
 }

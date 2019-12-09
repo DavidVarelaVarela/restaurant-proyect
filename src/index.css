@@ -14,6 +14,7 @@
 }
 div#root,body{
     font-family: Raleway, sans-serif;
+    
 }
 header h1  {
     margin-top: 0.5rem;
@@ -33,9 +34,18 @@ a,a:visited{
     font-size: 0.8rem;
     text-transform: uppercase;
 }
-
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
 fieldset{
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 button,
 input,a {
@@ -45,11 +55,11 @@ input,a {
     border-radius: 1rem 1rem;
     transition:  .3s ease-in;
 }
-.form-control.ko {
+fieldset.form-control.ko {
     color: var(--ko);
 }
 
-.form-control.ok {
+fieldset.form-control.ok {
     color: var(--ok);
 } 
 
