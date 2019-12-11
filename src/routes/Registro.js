@@ -27,75 +27,71 @@ export function Registro() {
         });
     };
     return (
-        <div id="registro">
-            <main className="registro" >
-                <h3>Introduce tus datos</h3>
-                <form onSubmit={handleSubmit(handleSignUp)}>
-                    <fieldset className={`form-control ${getColor("name")}`}>
-                        <label>Name</label>
-                        <input className="registro"
-                            ref={register({
-                                required: "The name is required"
-                            })}
-                            id="name"
-                            name="name"
-                            type="text"
-                            placeholder="Enter your name"
-                        />
-                        <span className="errorMessage">
-                            {errors.name && errors.name.message}
-                        </span>
-                    </fieldset>
-                    <fieldset className={`form-control ${getColor("email")}`}>
-                        <label>Email</label>
-                        <input className="registro"
-                            ref={register({
-                                required: "The email is required",
-                                pattern: {
-                                    message: "The email is not valid",
-                                    value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                                }
-                            })}
-                            id="email"
-                            name="email"
-                            type="text"
-                            placeholder="Enter your email"
-                        />
-                        <span className="errorMessage">
-                            {errors.email && errors.email.message}
-                        </span>
-                    </fieldset>
-                    <fieldset className={`form-control ${getColor("password")}`}>
-                        <label>Password</label>
-                        <input className="registro"
-                            ref={register({
-                                required: "The password should be in place",
-                                minLength: {
-                                    message: "Password length should be greater than 6",
-                                    value: 6
-                                }
-                            })}
-                            id="password"
-                            name="password"
-                            type="password"
-                            placeholder="Enter your password"
-                        />
-                        <span className="errorMessage">
-                            {errors.password && errors.password.message}
-                        </span>
-                    </fieldset>
-                    <div className="btn-container">
-                        <button
-                            type="submit"
-                            className="btn"
-                            disabled={formState.isSubmitting}
-                        >
-                            Submit
+        <main className="registro reg" >
+            <h3>Introduce tus datos</h3>
+            <form onSubmit={handleSubmit(handleSignUp)}>
+                <fieldset className={`form-control ${getColor("name")}`}>
+                    <label>Name</label>
+                    <input className="registro"
+                        ref={register({
+                            required: "The name is required"
+                        })}
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Enter your name"
+                    />
+                    <span className="errorMessage">
+                        {errors.name && errors.name.message}
+                    </span>
+                </fieldset>
+                <fieldset className={`form-control ${getColor("email")}`}>
+                    <label>Email</label>
+                    <input className="registro"
+                        ref={register({
+                            required: "The email is required",
+                            pattern: {
+                                message: "The email is not valid",
+                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                            }
+                        })}
+                        id="email"
+                        name="email"
+                        type="text"
+                        placeholder="Enter your email"
+                    />
+                    <span className="errorMessage">
+                        {errors.email && errors.email.message}
+                    </span>
+                </fieldset>
+                <fieldset className={`form-control ${getColor("password")}`}>
+                    <label>Password</label>
+                    <input className="registro"
+                        ref={register({
+                            required: "The password should be in place",
+                            minLength: {
+                                message: "Password length should be greater than 6",
+                                value: 6
+                            }
+                        })}
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Enter your password"
+                    />
+                    <span className="errorMessage">
+                        {errors.password && errors.password.message}
+                    </span>
+                </fieldset>
+                <button
+                    type="submit"
+                    className="btn"
+                    disabled={formState.isSubmitting || errors.email || errors.password || formState.touched.length < 3}
+                >
+                    Submit
                         </button>
-                    </div>
-                    <Link to="/login">Ya tengo cuenta</Link>
-                </form>
-            </main>
-        </div>
+                <Link to="/login" className="registro">Ya tengo cuenta</Link>
+            </form>
+        </main>
     );
 }

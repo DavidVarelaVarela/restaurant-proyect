@@ -12,7 +12,6 @@ function Login() {
     const {
         register,
         handleSubmit,
-        watch,
         formState,
         errors,
         setError,
@@ -40,60 +39,60 @@ function Login() {
     };
 
     return (
-        <div id="registro">
-            <main className="registro" >
-                <h3>Introdute tus datos</h3>
-                <form onSubmit={handleSubmit(handleSignin)}>
-                    <fieldset className={`form-control ${isFieldValid("email")}`}>
-                        <label >Email</label>
-                        <input className="registro"
-                            ref={register({
-                                required: "The email is required",
-                                pattern: {
-                                    message: "The email is not valid",
-                                    value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                                }
-                            })}
-                            id="email"
-                            name="email"
-                            type="text"
-                            placeholder="Enter your email"
-                        />
-                        <span className="errorMessage">
-                            {errors.email && errors.email.message}
-                        </span>
-                    </fieldset>
-                    <fieldset className={`form-control ${isFieldValid("password")}`}>
-                        <label>Password</label>
-                        <input className="registro"
-                            ref={register({
-                                required: "The password should be in place",
-                                minLength: {
-                                    message: "Password length should be greater than 5",
-                                    value: 5
-                                }
-                            })}
-                            id="password"
-                            name="password"
-                            type="password"
-                            placeholder="Enter your password"
-                        />
-                        <span className="errorMessage">
-                            {errors.password && errors.password.message}
-                        </span>
-                    </fieldset>
-                    <button
-                        type="submit"
-                        className="btn"
-                        disabled={formState.isSubmitting || errors.email || errors.password || formState.touched.length < 2}
-                    >
-                        Entrar
+
+        <main className="registro login" >
+            <h3>Introdute tus datos</h3>
+            <form onSubmit={handleSubmit(handleSignin)}>
+                <fieldset className={`form-control ${isFieldValid("email")}`}>
+                    <label >Email</label>
+                    <input className="registro"
+                        ref={register({
+                            required: "The email is required",
+                            pattern: {
+                                message: "The email is not valid",
+                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                            }
+                        })}
+                        id="email"
+                        name="email"
+                        type="text"
+                        placeholder="Enter your email"
+                    />
+                    <span className="errorMessage">
+                        {errors.email && errors.email.message}
+                    </span>
+                </fieldset>
+                <fieldset className={`form-control ${isFieldValid("password")}`}>
+                    <label>Password</label>
+                    <input className="registro"
+                        ref={register({
+                            required: "The password is requerid",
+                            minLength: {
+                                message: "Password length should be greater than 5",
+                                value: 5
+                            }
+                        })}
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Enter your password"
+                    />
+                </fieldset>
+                <span className="errorMessage">
+                    {errors.password && errors.password.message}
+                </span>
+                <button
+                    type="submit"
+                    className="btn"
+                    disabled={formState.isSubmitting || errors.email || errors.password || formState.touched.length < 2}
+                >
+                    Entrar
                     </button>
-                    <Link to="/registro">Registrarse</Link>
-                    <Link to="/recuperar-contrasena">Recuperar contraseña</Link>
-                </form>
-            </main>
-        </div>
+                <Link to="/registro" className="registro">Registrarse</Link>
+                <Link to="/recuperar-contrasena" className="registro">Recuperar contraseña</Link>
+            </form>
+        </main>
+
     );
 }
 
