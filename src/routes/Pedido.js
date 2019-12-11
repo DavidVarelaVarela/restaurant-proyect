@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import "../css/pedido.css"
 
 
@@ -6,11 +8,10 @@ export function Pedido() {
     return (
         <React.Fragment>
             <main className="pedido">
-
-                <header>
-                    <h1>SAS</h1>
-                    <button className="back">Volver a inicio</button>
-                    <button className="call">Llamar camarero</button>
+                <header className="home">
+                    <h1>Aldach Has</h1>
+                    <button className="btn call">Ayuda</button>
+                    <Link to="/" ><button className="btn call">Volver</button></Link>
                 </header>
                 <section className="shopping-car">
                     <ul>

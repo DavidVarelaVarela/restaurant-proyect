@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 
 import "../css/home.css"
 
@@ -9,7 +11,7 @@ export function Home() {
             <header className="home">
                 <h1>Aldach Has</h1>
                 <button className="btn call">Ayuda</button>
-                <button className="btn shopping-cart"></button>
+                <Link to="/pedido" ><button className="btn shopping-cart"></button></Link>
             </header>
             <main id="home">
                 <section>

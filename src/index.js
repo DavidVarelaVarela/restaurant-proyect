@@ -14,9 +14,9 @@ function App() {
         <BrowserRouter>
             <AuthProvider>
                 <Switch>
-                    <Route exact path="/">
+                    <PrivateRoute exact path="/">
                         <Home />
-                    </Route>
+                    </PrivateRoute>
                     <Route path="/login">
                         <Login />
                     </Route>
