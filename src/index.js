@@ -8,6 +8,7 @@ import { AuthProvider } from "./shared/context/auth-context";
 import { PrivateRoute } from "./components/PrivateRoute";
 
 import './index.css'
+import { Employeer } from './routes/Employeer';
 
 function App() {
     return (
@@ -34,6 +35,7 @@ function App() {
                     <PrivateRoute path="/valoracion">
                     </PrivateRoute>
                     <PrivateRoute path="/employeer">
+                        <Employeer />
                     </PrivateRoute>
                     <Route path="*">
                         <NotFound />
