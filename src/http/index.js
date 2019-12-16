@@ -3,7 +3,7 @@ import { login, register } from "./authService";
 
 function isBearerTokenRequired(url) {
     const parsedURL = new URL(url);
-    if (["/auth", "/user"].includes(parsedURL.pathname)) {
+    if (["/account/login", "/account"].includes(parsedURL.pathname)) {
         return false;
     }
     return true;
@@ -18,7 +18,7 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 // Si no tenia nada la inicio a null
 // La siguiente condicion de OR si la primera parte es true entonces se queda con el
 // resultado de la primera condición y en caso contrario con la segunda (null)
-let token = (currentUser && currentUser.token) || null;
+let token = (currentUser && currentUser.accessToken) || null;
 
 // Definimos interceptors de request y response
 // REQUEST
@@ -55,7 +55,7 @@ axios.interceptors.response.use(
         // Mi aplicación supone que mi backend envia un objeto con { token, user } siempre
         // que el usuario se identifica (Login, Registro)
         // En otra aplicación podría ser diferente
-        if (response.data.token) {
+        if (response.data.accessToken) {
             localStorage.setItem("currentUser", JSON.stringify(response.data));
             token = response.data.token;
         }
@@ -67,7 +67,7 @@ axios.interceptors.response.use(
         // Entonces redirijo a la URL de login y limpio el localStorage
         if (
             error.response.status === 401 &&
-            error.config.url.indexOf("/auth") === -1
+            error.config.url.indexOf("/login") === -1
         ) {
             localStorage.removeItem("currentUser");
             window.location.href = "/login";

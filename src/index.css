@@ -30,7 +30,7 @@ h2,h3,h4,h5,h6{
 
 a,a:visited{
     text-decoration-line: none;
-    color: initial;
+    color:inherit;
     font-size: 0.8rem;
 }
 form{
@@ -62,7 +62,8 @@ fieldset.form-control.ok {
     color: var(--ok);
 } 
 
-span{
+span.errorMessage{
+    box-sizing: border-box;
     font-size: 0.7rem;
     color: black;
 }

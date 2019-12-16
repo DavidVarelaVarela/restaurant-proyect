@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     const signIn = async ({ email, password }) => {
         try {
             const {
-                data: { token, user }
+                data: { accessToken, user }
             } = await login(email, password);
             setUser(user);
             setIsAuthenticated(true);
@@ -31,11 +31,11 @@ export function AuthProvider({ children }) {
     const signUp = async ({ name, email, password }) => {
         try {
             const {
-                data: { token, user }
+                data: { accessToken, user }
             } = await register({ name, email, password });
             setUser(user);
             setIsAuthenticated(true);
-            if (token) {
+            if (accessToken) {
                 history.push("/");
             }
         } catch (error) {

@@ -21,7 +21,7 @@ function Login() {
     });
 
     // console.log("WATCH: ", watch());
-    console.log("STATE: ", formState);
+    // console.log("STATE: ", formState);
     // console.log("ERRORS:", errors);
 
     const handleSignin = formData => {
@@ -68,7 +68,7 @@ function Login() {
                         ref={register({
                             required: "The password is requerid",
                             minLength: {
-                                message: "Password length should be greater than 5",
+                                message: "Password greater than 5",
                                 value: 5
                             }
                         })}
@@ -84,7 +84,7 @@ function Login() {
                 <button
                     type="submit"
                     className="btn"
-                    disabled={formState.isSubmitting || errors.email || errors.password || formState.touched.length < 2}
+                    disabled={formState.isSubmitting || errors.email || errors.password}
                 >
                     Entrar
                     </button>

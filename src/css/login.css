@@ -24,7 +24,8 @@ input.registro{
     
 }
 fieldset > label{
-    margin: 1rem 0;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
     font-size: 0.8rem;
     justify-content: center;
 }
