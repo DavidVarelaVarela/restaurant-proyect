@@ -22,19 +22,26 @@ function ProductDetail() {
     if (!product) return null;
 
     return (
-        <div>
-            <a
-                href="/"
-                onClick={e => {
-                    e.preventDefault();
-                    history.goBack();
-                }}
-            >
-                Back
-            </a>
+        <article className="product">
+            <header className="home">
+                <h1>Aldach Has</h1>
+                <button className="btn call">Ayuda</button>
+                <button className="product-menu"><a
+                    href="/"
+                    onClick={e => {
+                        e.preventDefault();
+                        history.goBack();
+                    }}
+                >
+                    Volver
+            </a></button>
+            </header>
             <h3>{product.name}</h3>
-            <button onClick={() => addItemToCart(product)}>Add to cart</button>
-        </div>
+            <img src="/img/carne/carne1.jpeg" width="300px" alt="foto de producto" />
+            <p>{product.description}</p>
+            <p>{`${product.price}€`}</p>
+            <button className="menu order" onClick={() => addItemToCart(product)}>Add to cart</button>
+        </article>
     );
 }
 

@@ -8,7 +8,7 @@ const AuthContext = React.createContext();
 // 2) Creamos el custom Provider
 export function AuthProvider({ children }) {
     // 2.1) Creamos Estados
-    const [isAuthenticated, setIsAuthenticated] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
     const history = useHistory();
 

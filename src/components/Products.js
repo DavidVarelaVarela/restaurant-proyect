@@ -20,15 +20,19 @@ function Products() {
                 <button className="btn call">Ayuda</button>
                 <Link className="btn shopping-cart" to="/cart">{totalItems && (<span>{totalItems}</span>)}</Link>
             </header>
-            <Link to="/">Volver</Link>
-            <ul>
-                {products.map(product => (
-                    <li key={product.id}>
-                        <Link to={`/product/${product.id}`}>{product.name}</Link>
-                        <span>{`$${product.price}`}</span>
-                    </li>
-                ))}
-            </ul>
+            <main className="products">
+                <button className="product-menu"><Link to="/">Volver</Link></button>
+                <ul>
+                    {products.map(product => (
+                        <li key={product.id}>
+                            <h2><Link to={`/product/${product.id}`}>{product.name}</Link></h2>
+                            <img src="/img/carne/carne1.jpeg" width="200px" alt="foto de producto" />
+                            <p>{product.description}</p>
+                            <span>{`${product.price}€`}</span>
+                        </li>
+                    ))}
+                </ul>
+            </main>
         </React.Fragment>
     );
 }
