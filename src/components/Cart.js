@@ -41,7 +41,7 @@ function Cart() {
                 <section className="order">
                     <ul className="order">
                         {cart.map(item => (
-                            <li className="order" key={item.id}>
+                            <li className="order" key={item.idProduct}>
                                 <article className="order">
                                     <h3><Link to={`/product/${item.id}`}>{`${item.name} `}</Link></h3>
                                     {/* <p>Hamburguesa de carne de ternera, con cebolla caramelizada, queso cheddar y salsa de mostaza dulce</p> */}

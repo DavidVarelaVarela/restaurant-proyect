@@ -10,9 +10,9 @@ export function CartProvider({ children }) {
     const addItemToCart = cartItem => {
         let updatedCart = null;
 
-        if (cart.find(item => item.id === cartItem.id)) {
+        if (cart.find(item => item.idProduct === cartItem.idProduct)) {
             updatedCart = cart.map(item => {
-                if (item.id === cartItem.id) {
+                if (item.idProduct === cartItem.idProduct) {
                     item.quantity++;
                 }
                 return item;
@@ -30,13 +30,13 @@ export function CartProvider({ children }) {
 
         if (cartItem.quantity > 1) {
             updatedCart = cart.map(item => {
-                if (cartItem.id === item.id) {
+                if (cartItem.idProduct === item.idProduct) {
                     item.quantity--;
                 }
                 return item;
             });
         } else {
-            updatedCart = cart.filter(item => cartItem.id !== item.id);
+            updatedCart = cart.filter(item => cartItem.idProduct !== item.idProduct);
         }
 
         setCart(updatedCart);

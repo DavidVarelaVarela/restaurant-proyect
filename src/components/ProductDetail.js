@@ -12,7 +12,7 @@ function ProductDetail() {
     useEffect(() => {
         axios
             .get(
-                `https://5ddc196a041ac10014de1b57.mockapi.io/products/${
+                `http://localhost:8000/api/product/${
                 params.id
                 }`
             )
@@ -37,7 +37,7 @@ function ProductDetail() {
             </a></button>
             </header>
             <h3>{product.name}</h3>
-            <img src="/img/carne/carne1.jpeg" width="300px" alt="foto de producto" />
+            <img src={`/img/${product.idProduct}.jpeg`} width="300px" alt="foto de producto" />
             <p>{product.description}</p>
             <p>{`${product.price}€`}</p>
             <button className="menu order" onClick={() => addItemToCart(product)}>Add to cart</button>

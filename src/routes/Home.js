@@ -18,25 +18,25 @@ export function Home() {
             </header>
             <main id="home">
                 <section>
-                    <button className="menu"><Link to="/products">Menú</Link></button>
+                    <button className="menu">Menú</button>
                     <ul className="home">
                         <li>
-                            <button className="product-menu" >Carne</button>
+                            <button className="product-menu" ><Link to="/products/carne">Carne</Link></button>
                         </li>
                         <li>
-                            <button className="product-menu">Pescado</button>
+                            <button className="product-menu"><Link to="/products/pescado">Pescado</Link></button>
                         </li>
                         <li>
-                            <button className="product-menu">Pasta</button>
+                            <button className="product-menu"><Link to="/products/pasta">Pasta</Link></button>
                         </li>
                         <li>
-                            <button className="product-menu">Ensalada</button>
+                            <button className="product-menu"><Link to="/products/ensalada">Ensalada</Link></button>
                         </li>
                         <li>
-                            <button className="product-menu">Bebidas</button>
+                            <button className="product-menu"><Link to="/products/bebidas">Bebidas</Link></button>
                         </li>
                         <li>
-                            <button className="product-menu">Postre</button>
+                            <button className="product-menu"><Link to="/products/postre">Postre</Link></button>
                         </li>
                     </ul>
                 </section>

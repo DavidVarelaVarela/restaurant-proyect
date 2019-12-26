@@ -26,3 +26,7 @@ export function postOrder({ order }) {
 
     });
 }
+
+export function getProducts({ productName }) {
+    return axios.post(`${BASE_URL}/product/${productName}`);
+}
