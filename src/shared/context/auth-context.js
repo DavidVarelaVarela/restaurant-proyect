@@ -8,7 +8,7 @@ const AuthContext = React.createContext();
 // 2) Creamos el custom Provider
 export function AuthProvider({ children }) {
     // 2.1) Creamos Estados
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(true);
     const [user, setUser] = useState(null);
     const history = useHistory();
 
@@ -28,11 +28,11 @@ export function AuthProvider({ children }) {
     };
 
     // Register => Cambiaré a true
-    const signUp = async ({ name, email, password }) => {
+    const signUp = async ({ name, email, password, phone }) => {
         try {
             const {
                 data: { accessToken, user }
-            } = await register({ name, email, password });
+            } = await register({ name, email, password, phone });
             setUser(user);
             setIsAuthenticated(true);
             if (accessToken) {

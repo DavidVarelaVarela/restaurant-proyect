@@ -64,6 +64,28 @@ export function Registro() {
                         {errors.email && errors.email.message}
                     </span>
                 </fieldset>
+                <fieldset className={`form-control ${getColor("phone")}`}>
+                    <label>Phone</label>
+                    <input className="registro"
+                        ref={register({
+                            pattern: {
+                                message: "The phone is not valid",
+                                value: /^([0-9]{9,9})/
+                            },
+                            minLength: {
+                                message: "Phone has 9 numbers",
+                                value: 9
+                            }
+                        })}
+                        id="phone"
+                        name="phone"
+                        type="number"
+                        placeholder="Enter your phone"
+                    />
+                    <span className="errorMessage">
+                        {errors.phone && errors.phone.message}
+                    </span>
+                </fieldset>
                 <fieldset className={`form-control ${getColor("password")}`}>
                     <label>Password</label>
                     <input className="registro"
@@ -86,7 +108,7 @@ export function Registro() {
                 <button
                     type="submit"
                     className="btn"
-                    disabled={formState.isSubmitting || errors.email || errors.password || formState.touched.length < 3}
+                    disabled={formState.isSubmitting || errors.email || errors.password}
                 >
                     Submit
                         </button>
