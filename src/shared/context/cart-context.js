@@ -44,7 +44,7 @@ export function CartProvider({ children }) {
     };
 
     const removeItem = id => {
-        const updatedCart = cart.filter(cartItem => cartItem.id !== id);
+        const updatedCart = cart.filter(cartItem => cartItem.idProduct !== id);
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
     };

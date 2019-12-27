@@ -43,7 +43,7 @@ function Cart() {
                         {cart.map(item => (
                             <li className="order" key={item.idProduct}>
                                 <article className="order">
-                                    <h3><Link to={`/product/${item.id}`}>{`${item.name} `}</Link></h3>
+                                    <h3><Link to={`/product/${item.idProduct}`}>{`${item.name} `}</Link></h3>
                                     {/* <p>Hamburguesa de carne de ternera, con cebolla caramelizada, queso cheddar y salsa de mostaza dulce</p> */}
                                     <p> Precio unidad: {`${item.price}€`}</p>
                                     <p>Cantidad: {item.quantity}</p>
@@ -70,7 +70,7 @@ function Cart() {
                                     <button className="btn order remove"
                                         onClick={e => {
                                             e.preventDefault();
-                                            removeItem(item.id);
+                                            removeItem(item.idProduct);
                                             setOrder(false)
                                         }}
                                     >
