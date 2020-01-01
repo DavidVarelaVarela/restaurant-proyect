@@ -20,8 +20,8 @@ export function register({ name, email, password, phone }) {
     });
 }
 
-export function postOrder({ order }) {
-    return axios.post(`${BASE_URL}/bill`, {
+export function postOrder(order) {
+    return axios.post(`${BASE_URL}/order`, {
         order
 
     });

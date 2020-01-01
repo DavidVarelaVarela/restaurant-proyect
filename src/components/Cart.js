@@ -7,7 +7,7 @@ import { postOrder } from "../http/authService"
 import "../css/pedido.css"
 
 function Cart() {
-    const [order, setOrder] = useState(false);
+    const [order, setOrder] = useState(localStorage.getItem("order"));
     const history = useHistory();
     const {
         cart,
@@ -18,8 +18,11 @@ function Cart() {
         removeItem,
     } = useCart();
 
-    const makeOrder = (o) => {
-        console.log(o)
+    const makeOrder = (pedido) => {
+        postOrder(pedido).then((response => {
+            setOrder(response.data);
+            localStorage.setItem("order", JSON.stringify(response.data));
+        }))
     }
 
     return (
@@ -53,7 +56,7 @@ function Cart() {
                                         onClick={e => {
                                             e.preventDefault();
                                             addItemToCart(item);
-                                            setOrder(false)
+
                                         }}
                                     >
                                         +
@@ -62,7 +65,6 @@ function Cart() {
                                         onClick={e => {
                                             e.preventDefault();
                                             removeItemFromCart(item);
-                                            setOrder(false)
                                         }}
                                     >
                                         -
@@ -71,7 +73,6 @@ function Cart() {
                                         onClick={e => {
                                             e.preventDefault();
                                             removeItem(item.idProduct);
-                                            setOrder(false)
                                         }}
                                     >
                                         Borrar
@@ -86,15 +87,21 @@ function Cart() {
                 <footer className="order">
                     {
                         totalItems > 0 && !order && (
-                            <button className="menu order" onClick={() => {
+                            <button className="menu order" onClick={(e) => {
+                                e.preventDefault();
                                 makeOrder(cart);
-                                setOrder(true)
                             }}>Confirmar Pedido</button>
                         )
                     }
                     {
                         order && (
-                            <button className="menu order" onClick={() => history.push("/confirmation")}>Pagar con tarjeta</button>
+                            <React.Fragment>
+                                <button className="menu order" onClick={(e) => {
+                                    e.preventDefault();
+                                    console.log(cart);
+                                }}>Actualizar Pedido</button>
+                                <button className="menu order" onClick={() => history.push("/confirmation")}>Pagar con tarjeta</button>
+                            </React.Fragment>
                         )
                     }
                 </footer>

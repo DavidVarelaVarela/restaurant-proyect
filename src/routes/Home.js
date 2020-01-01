@@ -33,7 +33,7 @@ export function Home() {
                             <button className="product-menu"><Link to="/products/ensalada">Ensalada</Link></button>
                         </li>
                         <li>
-                            <button className="product-menu"><Link to="/products/bebidas">Bebidas</Link></button>
+                            <button className="product-menu"><Link to="/products/bebida">Bebidas</Link></button>
                         </li>
                         <li>
                             <button className="product-menu"><Link to="/products/postre">Postre</Link></button>

@@ -13,7 +13,7 @@ function Products() {
         axios
             .get(`http://localhost:8000/api/products/${params.id}`)
             .then(response => setProducts(response.data));
-    }, []);
+    }, [params.id]);
 
     return (
         <React.Fragment>
