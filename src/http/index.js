@@ -66,13 +66,13 @@ axios.interceptors.response.use(
         // En caso de que el token expire (401)
         // y no sea el endpoint de login (que tambien devuelve 401 cuando las credenciales son invalidas)
         // Entonces redirijo a la URL de login y limpio el localStorage
-        // if (
-        //     error.response.status === 401 &&
-        //     error.config.url.indexOf("/login") === -1
-        // ) {
-        //     localStorage.removeItem("currentUser");
-        //     window.location.href = "/login";
-        // }
+        if (
+            error.response.status === 401 &&
+            error.config.url.indexOf("/login") === -1
+        ) {
+            localStorage.removeItem("currentUser");
+            window.location.href = "/login";
+        }
         // Siempre devolver el error de esta forma, a través de Promise.reject
         return Promise.reject(error);
     }

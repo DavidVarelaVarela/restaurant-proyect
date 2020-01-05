@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { useCart } from "../shared/context/cart-context";
+import { useOrder } from "../shared/context/order-context"
 import { Link } from "react-router-dom";
-import { postOrder } from "../http/authService"
+import { postOrder, putOrder } from "../http/authService"
 
 import "../css/pedido.css"
 
 function Cart() {
-    const [order, setOrder] = useState(localStorage.getItem("order"));
     const history = useHistory();
+
+    const { order, addOrder, verifyOrder } = useOrder();
+
+    useEffect(() => { verifyOrder() }, [])
     const {
         cart,
         totalPrice,
@@ -16,15 +20,20 @@ function Cart() {
         removeItemFromCart,
         addItemToCart,
         removeItem,
+        resetCart
     } = useCart();
 
     const makeOrder = (pedido) => {
         postOrder(pedido).then((response => {
-            setOrder(response.data);
-            localStorage.setItem("order", JSON.stringify(response.data));
+            addOrder(response.data)
         }))
     }
 
+    const updateOrder = (pedido, id) => {
+        putOrder(pedido, id).then((response => {
+            console.log(response.data)
+        }))
+    }
     return (
         <React.Fragment>
             <main className="order">
@@ -56,7 +65,6 @@ function Cart() {
                                         onClick={e => {
                                             e.preventDefault();
                                             addItemToCart(item);
-
                                         }}
                                     >
                                         +
@@ -90,15 +98,19 @@ function Cart() {
                             <button className="menu order" onClick={(e) => {
                                 e.preventDefault();
                                 makeOrder(cart);
+                                resetCart();
+                                history.push("/")
                             }}>Confirmar Pedido</button>
                         )
                     }
                     {
-                        order && (
+                        totalItems > 0 && order && (
                             <React.Fragment>
                                 <button className="menu order" onClick={(e) => {
                                     e.preventDefault();
-                                    console.log(cart);
+                                    updateOrder(cart, order)
+                                    resetCart();
+                                    history.push("/")
                                 }}>Actualizar Pedido</button>
                                 <button className="menu order" onClick={() => history.push("/confirmation")}>Pagar con tarjeta</button>
                             </React.Fragment>

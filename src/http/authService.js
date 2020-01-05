@@ -26,6 +26,12 @@ export function postOrder(order) {
 
     });
 }
+export function putOrder(order, id) {
+    return axios.put(`${BASE_URL}/order/${id}`, {
+        order
+
+    });
+}
 
 export function getProducts({ productName }) {
     return axios.post(`${BASE_URL}/product/${productName}`);

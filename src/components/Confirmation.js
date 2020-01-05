@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { useCart } from "../shared/context/cart-context";
+import { useOrder } from "../shared/context/order-context";
 
 function Confirmation() {
-    const { resetCart } = useCart();
+    const { resetOrder } = useOrder();
 
     useEffect(() => {
-        resetCart();
+        resetOrder();
     }, []);
 
     return (
