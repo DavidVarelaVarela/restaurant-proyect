@@ -15,6 +15,7 @@ import { CartProvider } from "./shared/context/cart-context";
 
 import './index.css'
 import { Cart } from './components/Cart';
+import { OrderProvider } from './shared/context/order-context';
 
 
 function App() {
@@ -22,45 +23,47 @@ function App() {
         <BrowserRouter>
             <AuthProvider>
                 <CartProvider>
-                    <Switch>
-                        <PrivateRoute exact path="/">
-                            <Home />
-                        </PrivateRoute>
-                        <Route path="/login">
-                            <Login />
-                        </Route>
-                        <Route path="/registro">
-                            <Registro />
-                        </Route>
-                        <Route path="/recuperar-contrasena">
-                            <Recuperacion />
-                        </Route>
-                        <PrivateRoute path="/menu">
-                        </PrivateRoute>
-                        <PrivateRoute path="/pedido">
-                            <Pedido />
-                        </PrivateRoute>
-                        <PrivateRoute path="/products/:id">
-                            <Products />
-                        </PrivateRoute>
-                        <PrivateRoute path="/product/:id">
-                            <ProductDetail />
-                        </PrivateRoute>
-                        <PrivateRoute path="/cart">
-                            <Cart />
-                        </PrivateRoute>
-                        <PrivateRoute path="/confirmation">
-                            <Confirmation />
-                        </PrivateRoute>
-                        <PrivateRoute path="/valoracion">
-                        </PrivateRoute>
-                        <PrivateRoute path="/employeer">
-                            <Employeer />
-                        </PrivateRoute>
-                        <Route path="*">
-                            <NotFound />
-                        </Route>
-                    </Switch>
+                    <OrderProvider>
+                        <Switch>
+                            <PrivateRoute exact path="/">
+                                <Home />
+                            </PrivateRoute>
+                            <Route path="/login">
+                                <Login />
+                            </Route>
+                            <Route path="/registro">
+                                <Registro />
+                            </Route>
+                            <Route path="/recuperar-contrasena">
+                                <Recuperacion />
+                            </Route>
+                            <PrivateRoute path="/menu">
+                            </PrivateRoute>
+                            <PrivateRoute path="/pedido">
+                                <Pedido />
+                            </PrivateRoute>
+                            <PrivateRoute path="/products/:id">
+                                <Products />
+                            </PrivateRoute>
+                            <PrivateRoute path="/product/:id">
+                                <ProductDetail />
+                            </PrivateRoute>
+                            <PrivateRoute path="/cart">
+                                <Cart />
+                            </PrivateRoute>
+                            <PrivateRoute path="/confirmation">
+                                <Confirmation />
+                            </PrivateRoute>
+                            <PrivateRoute path="/valoracion">
+                            </PrivateRoute>
+                            <PrivateRoute path="/employeer">
+                                <Employeer />
+                            </PrivateRoute>
+                            <Route path="*">
+                                <NotFound />
+                            </Route>
+                        </Switch>
+                    </OrderProvider>
                 </CartProvider>
             </AuthProvider>
         </BrowserRouter>
