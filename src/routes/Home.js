@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+
 import { useCart } from "../shared/context/cart-context";
+import { useOrder } from "../shared/context/order-context"
 
 
 
@@ -8,7 +11,12 @@ import "../css/home.css"
 
 
 export function Home() {
-    const { totalItems } = useCart()
+    const history = useHistory();
+    const { order, verifyOrder } = useOrder();
+    const { totalItems } = useCart();
+
+    useEffect(() => { verifyOrder() }, [order])
+
     return (
         <div className="home">
             <header className="home">
@@ -40,6 +48,7 @@ export function Home() {
                         </li>
                     </ul>
                 </section>
+                {order && <button className="menu order" onClick={() => history.push("/pedido")}>Pagar el pedido</button>}
             </main>
         </div >
     );

@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Home, Login, Registro, Recuperacion, Pedido, NotFound } from "./routes";
+import { Home, Login, Registro, Recuperacion, NotFound } from "./routes";
 import { Employeer } from './routes/Employeer';
 import { Products } from './components/Products';
 import { ProductDetail } from './components/ProductDetail';
 import { Confirmation } from './components/Confirmation';
+import { PayOrder } from "./components/PayOrder"
 
 import { AuthProvider } from "./shared/context/auth-context";
 import { PrivateRoute } from "./components/PrivateRoute";
@@ -40,7 +41,7 @@ function App() {
                             <PrivateRoute path="/menu">
                             </PrivateRoute>
                             <PrivateRoute path="/pedido">
-                                <Pedido />
+                                <PayOrder />
                             </PrivateRoute>
                             <PrivateRoute path="/products/:id">
                                 <Products />

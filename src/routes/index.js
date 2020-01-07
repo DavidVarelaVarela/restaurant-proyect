@@ -3,8 +3,7 @@ import { Login } from './Login'
 import { NotFound } from './NotFound'
 import { Registro } from './Registro'
 import { Recuperacion } from './Recuperacion'
-import { Pedido } from "./Pedido";
 
 
 
-export { Home, Login, Registro, Recuperacion, Pedido, NotFound }
+export { Home, Login, Registro, Recuperacion, NotFound }

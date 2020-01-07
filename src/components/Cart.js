@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { useCart } from "../shared/context/cart-context";
 import { useOrder } from "../shared/context/order-context"
@@ -30,9 +30,9 @@ function Cart() {
     }
 
     const updateOrder = (pedido, id) => {
-        putOrder(pedido, id).then((response => {
-            console.log(response.data)
-        }))
+        putOrder(pedido, id).then((response =>
+            response.data
+        ))
     }
     return (
         <React.Fragment>
