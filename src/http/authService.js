@@ -36,3 +36,7 @@ export function putOrder(order, id) {
 export function getProducts({ productName }) {
     return axios.post(`${BASE_URL}/product/${productName}`);
 }
+
+export function getBill({ order }) {
+    return axios.get(`${BASE_URL}/bill/${order}`);
+}
