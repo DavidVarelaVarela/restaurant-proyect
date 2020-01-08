@@ -1,5 +1,5 @@
 import axios from "axios";
-import { login, register, postOrder } from "./authService";
+import { login, register, postOrder, putBill, getProducts, getBill, payOrder } from "./authService";
 
 function isBearerTokenRequired(url) {
     const parsedURL = new URL(url);
@@ -31,7 +31,6 @@ axios.interceptors.request.use(
         // Compruebo si tengo token y si necesito enviarlo en el
         // header de Authorization
         if (accessToken && isBearerTokenRequired(config.url)) {
-            console.log(accessToken, isBearerTokenRequired(config.url))
             config.headers["Authorization"] = `Bearer ${accessToken}`;
         }
         // Acordarnos de devolver la config!!. Si no no sigue la cadena
@@ -78,4 +77,4 @@ axios.interceptors.response.use(
     }
 );
 
-export { login, register, postOrder };
+export { login, register, postOrder, putBill, getProducts, getBill, payOrder };

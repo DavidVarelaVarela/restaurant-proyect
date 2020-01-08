@@ -26,13 +26,18 @@ export function postOrder(order) {
 
     });
 }
-export function putOrder(order, id) {
-    return axios.put(`${BASE_URL}/order/${id}`, {
+export function putBill(order, id) {
+    return axios.put(`${BASE_URL}/bill/${id}`, {
         order
 
     });
 }
+export function payOrder(totalPrice, id) {
+    return axios.put(`${BASE_URL}/order/${id}`, {
+        totalPrice
 
+    });
+}
 export function getProducts({ productName }) {
     return axios.post(`${BASE_URL}/product/${productName}`);
 }

@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import { useCart } from "../shared/context/cart-context";
 import { useOrder } from "../shared/context/order-context"
 import { Link } from "react-router-dom";
-import { postOrder, putOrder } from "../http/authService"
+import { postOrder, putBill } from "../http/authService"
 
 import "../css/pedido.css"
 
@@ -30,7 +30,7 @@ function Cart() {
     }
 
     const updateOrder = (pedido, id) => {
-        putOrder(pedido, id).then((response =>
+        putBill(pedido, id).then((response =>
             response.data
         ))
     }
@@ -56,7 +56,6 @@ function Cart() {
                             <li className="order" key={item.idProduct}>
                                 <article className="order">
                                     <h3><Link to={`/product/${item.idProduct}`}>{`${item.name} `}</Link></h3>
-                                    {/* <p>Hamburguesa de carne de ternera, con cebolla caramelizada, queso cheddar y salsa de mostaza dulce</p> */}
                                     <p> Precio unidad: {`${item.price}€`}</p>
                                     <p>Cantidad: {item.quantity}</p>
                                 </article>
@@ -112,7 +111,6 @@ function Cart() {
                                     resetCart();
                                     history.push("/")
                                 }}>Actualizar Pedido</button>
-                                <button className="menu order" onClick={() => history.push("/confirmation")}>Pagar con tarjeta</button>
                             </React.Fragment>
                         )
                     }
