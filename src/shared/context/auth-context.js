@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { login, register } from "../../http";
 import { useHistory } from "react-router-dom";
 
@@ -8,16 +8,23 @@ const AuthContext = React.createContext();
 // 2) Creamos el custom Provider
 export function AuthProvider({ children }) {
     // 2.1) Creamos Estados
-    const [isAuthenticated, setIsAuthenticated] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
     const history = useHistory();
+
+
+    useEffect(() => { setUser(JSON.parse(localStorage.getItem("currentUser"))) }, [])
+    useEffect(() => { user && setIsAuthenticated(true) }, [user])
+    useEffect(() => { isAuthenticated && history.push(`/`) }, [isAuthenticated])
+
+
 
     // 2.2) Definiremos los métodos para modificar el estado
     // Login => Cambiaré a true
     const signIn = async ({ email, password }) => {
         try {
             const {
-                data: { accessToken, user }
+                data: { user }
             } = await login(email, password);
             setUser(user);
             setIsAuthenticated(true);
@@ -43,11 +50,16 @@ export function AuthProvider({ children }) {
         }
     };
     // Logout => Cambiaré a false
+    const logOut = () => {
+        localStorage.removeItem('currentUser');
+        setUser(null);
+        setIsAuthenticated(false);
 
+    }
     // 2.3) Devolvemos el Context
     return (
         <AuthContext.Provider
-            value={{ isAuthenticated, setIsAuthenticated, signIn, user, signUp }}
+            value={{ isAuthenticated, setIsAuthenticated, setUser, signIn, user, signUp, logOut }}
         >
             {children}
         </AuthContext.Provider>
