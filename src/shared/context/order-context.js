@@ -9,12 +9,13 @@ export function OrderProvider({ children }) {
 
     const verifyOrder = () => setOrder(JSON.parse(localStorage.getItem("order")));
 
-    const addOrder = (order) => { setOrder(localStorage.setItem("order", JSON.stringify(order.id))) }
+    const addOrder = (order) => { setOrder(localStorage.setItem("order", JSON.stringify(order.id))); setOrder(localStorage.setItem("table", JSON.stringify(order.idTable))) }
 
 
 
     const resetOrder = () => {
         localStorage.removeItem("order");
+        localStorage.removeItem("table");
         setOrder(null);
     };
 

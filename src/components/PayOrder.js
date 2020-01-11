@@ -28,7 +28,7 @@ function PayOrder() {
     }
     return (
         <React.Fragment>
-            <main className="order">
+            {!pay && <main className="order">
                 <header className="home">
                     <h1>Aldach Has</h1>
                     <button className="btn call">Ayuda</button>
@@ -43,7 +43,7 @@ function PayOrder() {
             </a></button>
                 </header>
                 <section className="order">
-                    {!pay && <ul className="order">
+                    <ul className="order">
                         {orderToPay.map(item => (
                             <li className="order" key={item.idProduct}>
                                 <article className="order">
@@ -53,15 +53,15 @@ function PayOrder() {
                                 </article>
                             </li>
                         ))}
-                    </ul>}
+                    </ul>
                     <p>IVA = {`${Number((totalPrice / 1.21).toFixed(2))}€`}</p>
                     <p>Total = {`${Number(totalPrice.toFixed(2))}€`}</p>
-                    {pay && <Confirmation />}
                 </section>
                 <footer className="order">
-                    {!pay && <button className="menu order" onClick={(e) => { e.preventDefault(); finalizeOrder(totalPrice, order); setPay(true) }}>Pagar con tarjeta</button>}
+                    <button className="menu order" onClick={(e) => { e.preventDefault(); finalizeOrder(totalPrice, order); setPay(true); alert('Su pago se ha realizado correctamente') }}>Pagar con tarjeta</button>
                 </footer>
-            </main>
+            </main>}
+            {pay && <Confirmation />}
         </React.Fragment >
     )
 }
