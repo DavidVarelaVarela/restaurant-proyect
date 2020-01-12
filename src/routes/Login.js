@@ -26,7 +26,7 @@ function Login() {
 
     const handleSignin = formData => {
         signIn(formData)
-            .then(data => console.log(data))
+            .then(data => (data))
             .catch(error => {
                 setError("password", "invalidCredentials", "Password or email are incorrect");
             });

@@ -9,9 +9,13 @@ function Products() {
     const params = useParams();
     const [products, setProducts] = useState([]);
 
+    const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+    //const BASE_URL = "http://localhost:8000/api"
+
+
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/api/products/${params.id}`)
+            .get(`${BASE_URL}/products/${params.id}`)
             .then(response => setProducts(response.data));
     }, [params.id]);
 
@@ -28,7 +32,7 @@ function Products() {
                     {products.map(product => (
                         <li key={product.idProduct}>
                             <h2><Link to={`/product/${product.idProduct}`}>{product.name}</Link></h2>
-                            <img src={`/img/${product.idProduct}.jpeg`} width="200px" alt="foto de producto" />
+                            <Link to={`/product/${product.idProduct}`}><img src={`/img/${product.idProduct}.jpeg`} width="200px" alt="foto de producto" /></Link>
                             <p>{product.description}</p>
                             <span>{`${product.price}€`}</span>
                         </li>

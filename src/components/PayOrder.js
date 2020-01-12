@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useOrder } from "../shared/context/order-context"
 import { getBill } from "../http/authService"
 import { Confirmation } from "../components/Confirmation"
-import { payOrder } from "../http/authService"
 
 
 import { useHistory } from "react-router";
@@ -21,11 +20,7 @@ function PayOrder() {
         0
     );
     useEffect(() => { order && getBill({ order }).then(response => setOrderToPay(response.data)) }, [order])
-    const finalizeOrder = (pedido, id) => {
-        payOrder(pedido, id).then((response =>
-            response.data
-        ))
-    }
+
     return (
         <React.Fragment>
             {!pay && <main className="order">
@@ -54,14 +49,15 @@ function PayOrder() {
                             </li>
                         ))}
                     </ul>
-                    <p>IVA = {`${Number((totalPrice / 1.21).toFixed(2))}€`}</p>
+                    <p>IVA = {`${Number((totalPrice - (totalPrice / 1.10)).toFixed(2))}€`}</p>
                     <p>Total = {`${Number(totalPrice.toFixed(2))}€`}</p>
                 </section>
                 <footer className="order">
-                    <button className="menu order" onClick={(e) => { e.preventDefault(); finalizeOrder(totalPrice, order); setPay(true); alert('Su pago se ha realizado correctamente') }}>Pagar con tarjeta</button>
+                    <button className="menu order" onClick={(e) => { e.preventDefault(); setPay(true) }}>Pagar con tarjeta</button>
+                    <button className="menu order" onClick={(e) => { e.preventDefault(); setPay(true) }}>Pagar con efectivo</button>
                 </footer>
             </main>}
-            {pay && <Confirmation />}
+            {pay && <Confirmation totalPrice={totalPrice} order={order} />}
         </React.Fragment >
     )
 }
