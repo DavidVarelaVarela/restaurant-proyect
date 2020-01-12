@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8000/api";
-
+const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+// const BASE_URL = "http://localhost:8000/api"
 
 export function login(email, password) {
     return axios.post(`${BASE_URL}/account/login`, {
@@ -32,9 +32,9 @@ export function putBill(order, id) {
 
     });
 }
-export function payOrder(totalPrice, id) {
+export function payOrder(id, totalPrice, starsSelected) {
     return axios.put(`${BASE_URL}/order/${id}`, {
-        totalPrice
+        totalPrice, starsSelected
 
     });
 }

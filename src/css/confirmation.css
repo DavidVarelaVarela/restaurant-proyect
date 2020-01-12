@@ -19,6 +19,7 @@
 }
 
 .star {
+    margin-top: 1rem;
     cursor: pointer;
     width: 2em;
     height: 2em;
@@ -51,4 +52,7 @@
 
 .star.selected {
     background-color: green;
+}
+.confirmation {
+    margin-bottom:  1rem;
 }
