@@ -13,7 +13,7 @@ function isBearerTokenRequired(url) {
 // La idea es la misma que en el auth-context.js. Si el usuario refresca la página
 // mantengo el estado en el que estaba
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-console.log(currentUser)
+
 
 // Iniciamos la variable token con lo almacenado en el localStorage
 // Si no tenia nada la inicio a null

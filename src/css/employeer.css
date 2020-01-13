@@ -1,0 +1,59 @@
+header.employeer{
+    background-color:rgba(134, 146, 140, 0.5);
+    padding: 0.5rem;
+}
+main.employeer{
+    
+    background-color:rgba(134, 146, 140, 0.5);
+}
+
+section.table{
+    text-align: center;
+    font-size: 0.8rem;
+}
+ul.employeer{
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+li.table{
+    margin-bottom: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid var(--dark);
+    align-self: center;
+    justify-content: space-evenly;
+    max-width: 90%;
+    min-width: 70%;
+    min-height: 10rem;
+    
+    
+}
+form.employeer{
+    margin-left: 0.25rem;
+    justify-content: space-evenly;
+    
+}
+button.employeer{
+    margin: 0.25rem;
+    width: 10rem;
+    padding: 0.5rem;
+}
+fieldset.employeer{
+    display: inline;
+    margin-left: 0.25rem;
+    
+    
+}
+input.employeer {
+    box-shadow: 0 0 0 3px red;
+    margin: 0.25rem 0.25rem 0 0;
+    
+}
+input:checked{
+    box-shadow: 0 0 0 3px green;
+    color: red;
+    }
+
+
