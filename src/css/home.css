@@ -10,6 +10,7 @@ div.home{
 header.home{
     display: flex;
     justify-content:space-between;
+    background-color:rgba(241, 129, 88, 0.7);
 }
 
 
