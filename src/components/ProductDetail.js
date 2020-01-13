@@ -28,7 +28,7 @@ function ProductDetail() {
     return (
         <article className="product">
             <header className="home">
-                <h1>Aldach Has</h1>
+                <h1>Green House</h1>
                 <button className="btn call">Ayuda</button>
                 <Link className="btn shopping-cart" to="/cart">{totalItems && (<span>{totalItems}</span>)}</Link>
             </header>

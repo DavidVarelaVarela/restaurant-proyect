@@ -41,7 +41,7 @@ function Login() {
     return (
 
         <main className="registro login" >
-            <h3>Introdute tus datos</h3>
+            <h3>Introduce tus datos</h3>
             <form onSubmit={handleSubmit(handleSignin)}>
                 <fieldset className={`form-control ${isFieldValid("email")}`}>
                     <label >Email</label>

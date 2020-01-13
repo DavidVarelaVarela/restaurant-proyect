@@ -9,7 +9,7 @@ export function Pedido() {
         <React.Fragment>
             <main className="pedido">
                 <header className="home">
-                    <h1>Aldach Has</h1>
+                    <h1>Green House</h1>
                     <button className="btn call">Ayuda</button>
                     <Link to="/" ><button className="btn call">Volver</button></Link>
                 </header>
