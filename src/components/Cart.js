@@ -38,7 +38,7 @@ function Cart() {
         <React.Fragment>
             <main className="order">
                 <header className="home">
-                    <h1>Aldach Has</h1>
+                    <h1>Green House</h1>
                     <button className="btn call">Ayuda</button>
                     <button className="product-menu"><a
                         href="/"

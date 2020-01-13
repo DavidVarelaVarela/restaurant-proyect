@@ -33,8 +33,8 @@ const finalMessage = () => {
     Swal.fire({
         icon: 'success',
         position: 'center',
-        title: 'Es pedido se ha pagado correctamente!',
-        html: '<p>Muchas graias por su visita, esperamos verlo pronto.<p>',
+        title: 'El pedido se ha pagado correctamente!',
+        html: '<p>Muchas gracias por su visita, esperamos verlo pronto.<p>',
         timer: 3000,
         timerProgressBar: false,
         showConfirmButton: false,
