@@ -9,8 +9,8 @@ function ProductDetail() {
     const params = useParams();
     const history = useHistory();
     const { addItemToCart, totalItems } = useCart();
-    const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
-    // const BASE_URL = "http://localhost:8000/api"
+    //const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+    const BASE_URL = "http://localhost:8000/api"
 
     useEffect(() => {
         axios
