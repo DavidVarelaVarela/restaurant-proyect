@@ -32,10 +32,9 @@ export function putBill(order, id) {
 
     });
 }
-export function payOrder(id, totalPrice, starsSelected) {
+export function payOrder(id, totalPrice, starsSelected, status, time) {
     return axios.put(`${BASE_URL}/order/${id}`, {
-        totalPrice, starsSelected
-
+        totalPrice, starsSelected, status, time
     });
 }
 export function getProducts({ productName }) {

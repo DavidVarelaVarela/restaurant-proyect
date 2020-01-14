@@ -9,8 +9,8 @@ function Products() {
     const params = useParams();
     const [products, setProducts] = useState([]);
 
-    const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
-    //const BASE_URL = "http://localhost:8000/api"
+    //const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+    const BASE_URL = "http://localhost:8000/api"
 
 
     useEffect(() => {

@@ -6,24 +6,27 @@ import "../css/employeer.css"
 
 export function Employeer() {
     const [table, setTable] = useState([])
-
     const idEmployeer = 1
-    useEffect(() => {
-        getTableStatus({ idEmployeer }).then(response => setTable(response.data))
 
+
+
+    useEffect(() => {
+        setInterval(() => {
+            getTableStatus({ idEmployeer }).then(response => setTable(response.data))
+        }, 5000);
     }, []);
 
-
-    return (<React.Fragment>
-        <header className="employeer"> <h1> Gestión de mesas SAS</h1></header>
+    return (<div className="employeer">
+        <header className="employeer"> <h2> Gestión de mesas SAS</h2></header>
         <main className="employeer">
             <ul className="employeer">
-                {table.map((order) => (<li className="table" key={order.idTables}>
-                    <Table order={order} />
+                {table.map((order) => (<li className="table" key={order.idOrders}>
+                    <Table order={order}
+                    />
                 </li>
                 ))}
 
             </ul>
         </main>
-    </React.Fragment>)
+    </div>)
 }

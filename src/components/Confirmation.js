@@ -22,8 +22,8 @@ const StarRating = ({ totalStars, starToSelec, starsSelected }) => {
 
     );
 };
-const finalizeOrder = (pedido, price, ratting) => {
-    payOrder(pedido, price, ratting).then((response =>
+const finalizeOrder = (pedido, price, ratting, status) => {
+    payOrder(pedido, price, ratting, status).then((response =>
         response.data
     ))
 }
@@ -45,7 +45,7 @@ function Confirmation({ totalPrice, order }) {
     const [starsSelected, selectStar] = useState(0);
     const { logOut } = useAuth();
     const { resetOrder } = useOrder();
-
+    const status = "Pagado"
     function starToSelec(i) {
         return selectStar(i + 1)
     }
@@ -55,8 +55,8 @@ function Confirmation({ totalPrice, order }) {
         <main className="rating">
             <h3>Valora este servicio para finalizar el pago</h3>
             <StarRating totalStars={5} starToSelec={starToSelec} starsSelected={starsSelected} />
-            <button className="menu confirmation" onClick={(e) => { e.preventDefault(); finalizeOrder(order, totalPrice, starsSelected); resetOrder(); finalMessage(); logOut() }}>Valora este servicio</button>
-            <button className="menu confirmation" onClick={(e) => { e.preventDefault(); finalizeOrder(order, totalPrice, 0); resetOrder(); finalMessage(); logOut() }}>Pagar sin valorar</button>
+            <button className="menu confirmation" onClick={(e) => { e.preventDefault(); finalizeOrder(order, totalPrice, starsSelected, status); resetOrder(); finalMessage(); logOut() }}>Valora este servicio</button>
+            <button className="menu confirmation" onClick={(e) => { e.preventDefault(); finalizeOrder(order, totalPrice, 0, status); resetOrder(); finalMessage(); logOut() }}>Pagar sin valorar</button>
         </main>)
 }
 
