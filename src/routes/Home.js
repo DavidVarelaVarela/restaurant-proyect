@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-
+import { useAuth } from '../shared/context/auth-context'
 import { useCart } from "../shared/context/cart-context";
 import { useOrder } from "../shared/context/order-context"
 
@@ -11,17 +11,23 @@ import "../css/home.css"
 
 
 export function Home() {
+    const { logOut, getHelp } = useAuth();
     const history = useHistory();
     const { order, verifyOrder } = useOrder();
     const { totalItems } = useCart();
+    useEffect(() => { verifyOrder() }, [verifyOrder])
 
-    useEffect(() => { verifyOrder() }, [order])
-
+    const help = "true";
+    const callwaiter = (id, help) => {
+        getHelp({ id, help }).then((response =>
+            response.data
+        ))
+    }
     return (
         <div className="home">
             <header className="home">
                 <h1>Green House</h1>
-                <button className="btn call">Ayuda</button>
+                <button className="btn call" onClick={e => { e.preventDefault(); callwaiter(order, help) }}>Ayuda</button>
                 <Link className="btn shopping-cart" to="/cart">{totalItems && (<span>{totalItems}</span>)}</Link>
             </header>
             <main id="home">
@@ -50,6 +56,7 @@ export function Home() {
                 </section>
                 {order && <button className="menu order" onClick={() => history.push("/pedido")}>Pagar el pedido</button>}
             </main>
+            {!order && <footer><button className="btn menu" onClick={e => { e.preventDefault(); logOut() }}> Cerrar Sesión</button></footer>}
         </div >
     );
 }

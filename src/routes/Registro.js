@@ -79,7 +79,7 @@ export function Registro() {
                         })}
                         id="phone"
                         name="phone"
-                        type="number"
+                        type="tel"
                         placeholder="Enter your phone"
                     />
                     <span className="errorMessage">

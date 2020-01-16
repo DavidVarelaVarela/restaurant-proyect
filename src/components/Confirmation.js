@@ -56,7 +56,7 @@ function Confirmation({ totalPrice, order }) {
             <h3>Valora este servicio para finalizar el pago</h3>
             <StarRating totalStars={5} starToSelec={starToSelec} starsSelected={starsSelected} />
             <button className="menu confirmation" onClick={(e) => { e.preventDefault(); finalizeOrder(order, totalPrice, starsSelected, status); resetOrder(); finalMessage(); logOut() }}>Valora este servicio</button>
-            <button className="menu confirmation" onClick={(e) => { e.preventDefault(); finalizeOrder(order, totalPrice, 0, status); resetOrder(); finalMessage(); logOut() }}>Pagar sin valorar</button>
+            <button className="menu confirmation" onClick={(e) => { e.preventDefault(); finalizeOrder(order, totalPrice, 0, status); resetOrder(); finalMessage(); logOut() }}>No valorar</button>
         </main>)
 }
 

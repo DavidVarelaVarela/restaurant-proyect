@@ -1,21 +1,35 @@
 import React, { useState, useContext } from "react";
-import { login, register } from "../../http";
+import { login, register, loginEmploy, getHelp } from "../../http";
 import { useHistory } from "react-router-dom";
 
-// 1) Creamos el contexto
+
+
 const AuthContext = React.createContext();
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-// 2) Creamos el custom Provider
+
 export function AuthProvider({ children }) {
-    // 2.1) Creamos Estados
+
     const [isAuthenticated, setIsAuthenticated] = useState(currentUser !== null);
     const [user, setUser] = useState(currentUser && currentUser.user);
     const history = useHistory();
 
+    const signEmploy = async (password) => {
+        try {
+            const {
+                data: { user }
+            } = await loginEmploy(password);
+            setUser(user);
+            setIsAuthenticated(true);
+            history.push("/employeer");
 
-    // 2.2) Definiremos los métodos para modificar el estado
-    // Login => Cambiaré a true
+
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    };
+
+
     const signIn = async ({ email, password }) => {
         try {
             const {
@@ -29,7 +43,7 @@ export function AuthProvider({ children }) {
         }
     };
 
-    // Register => Cambiaré a true
+
     const signUp = async ({ name, email, password, phone }) => {
         try {
             const {
@@ -44,17 +58,26 @@ export function AuthProvider({ children }) {
             return Promise.reject(error);
         }
     };
-    // Logout => Cambiaré a false
+
     const logOut = () => {
         setUser(null);
         setIsAuthenticated(false);
         localStorage.removeItem('currentUser');
 
     }
-    // 2.3) Devolvemos el Context
+
+    const logOutEmploy = () => {
+        setUser(null);
+        setIsAuthenticated(false);
+        localStorage.removeItem('currentUser');
+        history.push("/login_employeer")
+
+
+    }
+
     return (
         <AuthContext.Provider
-            value={{ isAuthenticated, setIsAuthenticated, setUser, signIn, user, signUp, logOut }}
+            value={{ isAuthenticated, setIsAuthenticated, setUser, signIn, user, signUp, logOut, signEmploy, logOutEmploy, getHelp }}
         >
             {children}
         </AuthContext.Provider>
