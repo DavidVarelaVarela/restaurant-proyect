@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useOrder } from "../shared/context/order-context"
 import { getBill } from "../http/authService"
 import { Confirmation } from "../components/Confirmation"
+import { useAuth } from '../shared/context/auth-context'
+
 
 
 import { useHistory } from "react-router";
@@ -10,6 +12,7 @@ import { useHistory } from "react-router";
 import "../css/pedido.css"
 
 function PayOrder() {
+    const { getHelp } = useAuth();
     const history = useHistory();
     const { order } = useOrder();
     const [orderToPay, setOrderToPay] = useState([])
@@ -20,13 +23,18 @@ function PayOrder() {
         0
     );
     useEffect(() => { order && getBill({ order }).then(response => setOrderToPay(response.data)) }, [order])
-
+    const help = "true";
+    const callwaiter = (id, help) => {
+        getHelp({ id, help }).then((response =>
+            response.data
+        ))
+    }
     return (
         <React.Fragment>
             {!pay && <main className="order">
                 <header className="home">
                     <h1>Green House</h1>
-                    <button className="btn call">Ayuda</button>
+                    <button className="btn call" onClick={e => { e.preventDefault(); callwaiter(order, help) }}>Ayuda</button>
                     <button className="product-menu"><a
                         href="/"
                         onClick={e => {

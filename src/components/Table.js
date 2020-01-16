@@ -5,18 +5,18 @@ import useInterval from "../shared/utils/useInterval";
 
 
 
-export function Table({ order }) {
+export function Table({ order, callwaiter }) {
     const [products, setProduts] = useState([])
     const [time, setTime] = useState(0);
     const [checked, setChecked] = useState(false);
     const [pay, setPay] = useState(order.ORDER.status === "Pagado" ? true : false);
-
+    const help = "false"
 
     const onCheckedChange = () => setChecked(!checked)
     const onChekedPay = () => setPay(!pay)
 
-    //const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
-    const BASE_URL = "http://localhost:8000/api"
+    const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+    //const BASE_URL = "http://localhost:8000/api"
 
     useEffect(() => {
         axios
@@ -38,7 +38,7 @@ export function Table({ order }) {
 
     return (<React.Fragment  >
         <section className="table">
-            <button className="employeer">Mesa nº {order.idTables} <br></br> {time}</button>
+            <button className={`employeer ${order.help}`} onClick={e => { e.preventDefault(); callwaiter(order.idOrders, help) }} >Mesa nº {order.idTables} <br></br> {Math.round(time / 60).toFixed(0)} minutos {Math.round(time % 60).toFixed(0)} segundos</button>
             <ul>
                 {products.map(product => (
                     <li className="product-list" key={product.idProduct}>

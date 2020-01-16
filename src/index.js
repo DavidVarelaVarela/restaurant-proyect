@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Home, Login, Registro, Recuperacion, NotFound, Employeer } from "./routes";
+import { Home, Login, Registro, LoginEmployeer, NotFound, Employeer } from "./routes";
 import { Products } from './components/Products';
 import { ProductDetail } from './components/ProductDetail';
-// import { Confirmation } from './components/Confirmation';
 import { PayOrder } from "./components/PayOrder"
 
 import { AuthProvider } from "./shared/context/auth-context";
@@ -14,6 +13,7 @@ import { CartProvider } from "./shared/context/cart-context";
 
 
 import './index.css'
+
 import { Cart } from './components/Cart';
 import { OrderProvider } from './shared/context/order-context';
 
@@ -34,8 +34,8 @@ function App() {
                             <Route path="/registro">
                                 <Registro />
                             </Route>
-                            <Route path="/recuperar-contrasena">
-                                <Recuperacion />
+                            <Route path="/login_employeer">
+                                < LoginEmployeer />
                             </Route>
                             <PrivateRoute path="/menu">
                             </PrivateRoute>
@@ -50,11 +50,6 @@ function App() {
                             </PrivateRoute>
                             <PrivateRoute path="/cart">
                                 <Cart />
-                            </PrivateRoute>
-                            {/* <PrivateRoute path="/confirmation">
-                                <Confirmation />
-                            </PrivateRoute> */}
-                            <PrivateRoute path="/valoracion">
                             </PrivateRoute>
                             <PrivateRoute path="/employeer">
                                 <Employeer />
