@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useCart } from "../shared/context/cart-context";
-
+import "../css/format.css"
 function Products() {
     const { totalItems } = useCart()
     const params = useParams();
@@ -20,7 +20,7 @@ function Products() {
     }, [params.id]);
 
     return (
-        <React.Fragment>
+        <div className="format">
             <header className="home">
                 <h1>Green House</h1>
                 <button className="btn call">Ayuda</button>
@@ -39,7 +39,7 @@ function Products() {
                     ))}
                 </ul>
             </main>
-        </React.Fragment>
+        </div>
     );
 }
 

@@ -1,0 +1,38 @@
+.products {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    } 
+    div.format{
+        background-color: bisque;
+    }
+    /*Ordenador width 400px img 400px*/
+    
+    .products a {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    }
+    
+    .products img {
+    width: 200px;
+    }
+    
+    .products p {
+    text-align: center;
+    }
+    
+    .products span {
+    text-align: right;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 30px;
+    }
+    
+    .product {
+        width: 200px;
+        display: block;
+        margin: 0 auto;
+        } 

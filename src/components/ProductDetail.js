@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { useCart } from "../shared/context/cart-context";
+import "../css/format.css";
 
 function ProductDetail() {
     const [product, setProduct] = useState();
@@ -26,6 +27,7 @@ function ProductDetail() {
 
 
     return (
+        <div className = "format">
         <article className="product">
             <header className="home">
                 <h1>Green House</h1>
@@ -47,6 +49,7 @@ function ProductDetail() {
             <p>{`${product.price}€`}</p>
             <button className="menu order" onClick={() => { addItemToCart(product) }}>Add to cart</button>
         </article >
+        </div>
     );
 }
 
