@@ -4,15 +4,24 @@ import { useCart } from "../shared/context/cart-context";
 import { useOrder } from "../shared/context/order-context"
 import { Link } from "react-router-dom";
 import { postOrder, putBill } from "../http/authService"
+import { useAuth } from '../shared/context/auth-context'
+
 
 import "../css/pedido.css"
 
 function Cart() {
     const history = useHistory();
-
+    const { getHelp } = useAuth();
     const { order, addOrder, verifyOrder } = useOrder();
 
-    useEffect(() => { verifyOrder() }, [])
+    const help = "true";
+    const callwaiter = (id, help) => {
+        getHelp({ id, help }).then((response =>
+            response.data
+        ))
+    }
+
+    useEffect(() => { verifyOrder() }, [verifyOrder])
     const {
         cart,
         totalPrice,
@@ -39,7 +48,7 @@ function Cart() {
             <main className="order">
                 <header className="home">
                     <h1>Green House</h1>
-                    <button className="btn call">Ayuda</button>
+                    <button className="btn call" onClick={e => { e.preventDefault(); callwaiter(order, help) }}>Ayuda</button>
                     <button className="product-menu"><a
                         href="/"
                         onClick={e => {

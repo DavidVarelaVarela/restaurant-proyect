@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useAuth } from '../shared/context/auth-context'
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useCart } from "../shared/context/cart-context";
-import "../css/format.css"
+import { useOrder } from "../shared/context/order-context"
+
+
+
 function Products() {
+    const { order } = useOrder();
+    const { getHelp } = useAuth();
     const { totalItems } = useCart()
     const params = useParams();
     const [products, setProducts] = useState([]);
@@ -18,12 +24,17 @@ function Products() {
             .get(`${BASE_URL}/products/${params.id}`)
             .then(response => setProducts(response.data));
     }, [params.id]);
-
+    const help = "true";
+    const callwaiter = (id, help) => {
+        getHelp({ id, help }).then((response =>
+            response.data
+        ))
+    }
     return (
         <div className="format">
             <header className="home">
                 <h1>Green House</h1>
-                <button className="btn call">Ayuda</button>
+                <button className="btn call" onClick={e => { e.preventDefault(); callwaiter(order, help) }}>Ayuda</button>
                 <Link className="btn shopping-cart" to="/cart">{totalItems && (<span>{totalItems}</span>)}</Link>
             </header>
             <main className="products">

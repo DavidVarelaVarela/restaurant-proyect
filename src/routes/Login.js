@@ -20,9 +20,6 @@ function Login() {
         mode: "onBlur"
     });
 
-    // console.log("WATCH: ", watch());
-    // console.log("STATE: ", formState);
-    // console.log("ERRORS:", errors);
 
     const handleSignin = formData => {
         signIn(formData)
@@ -89,7 +86,6 @@ function Login() {
                     Entrar
                     </button>
                 <Link to="/registro" className="registro">Registrarse</Link>
-                <Link to="/recuperar-contrasena" className="registro">Recuperar contraseña</Link>
             </form>
         </main>
 

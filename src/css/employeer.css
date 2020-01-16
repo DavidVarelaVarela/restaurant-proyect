@@ -1,0 +1,112 @@
+div.employeer{
+    height: 100vh;
+    background-color:rgba(134, 146, 140, 0.5);
+}
+header.employeer{
+    display: flex;
+    background-color:rgba(134, 146, 140, 0.5);
+    text-align: center;
+    justify-content: center;
+    
+}
+h2.employeer{
+    align-self: center;
+    order:-2
+    
+}
+
+ul.employeer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+form.employeer{
+    margin-left: 0.25rem;
+    justify-content: space-evenly;
+    
+}
+button.employeer{
+    margin: 0.25rem;
+    width: 10rem;
+    padding: 0.5rem;
+}
+button.employeer{
+    order:-1
+}
+fieldset.employeer{
+    display: inline;
+    margin-left: 0.25rem;
+    
+    
+}
+input.employeer {
+    box-shadow: 0 0 0 3px red;
+    margin: 0.25rem 0.25rem 0 0;
+    
+}
+input:checked{
+    box-shadow: 0 0 0 3px green;
+    color: red;
+}
+
+section.table{
+    text-align: center;
+    font-size: 0.8rem;
+}
+li.table{
+    margin-bottom: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid var(--dark);
+    align-self: center;
+    justify-content: space-evenly;
+    max-width: 90%;
+    min-width: 70%;
+    min-height: 10rem;
+}
+li.product-list{
+    display: flex;
+}
+
+p.product-list{
+    margin: 0 0.5rem;
+}
+
+.scoreboard {
+    padding: 1rem 0;
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    }
+
+.scoreboard th {
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+}
+
+.scoreboard th,
+.scoreboard td {
+    padding: 0.25rem 0.7rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.scoreboard button {
+    background: #000;
+    color: #fff;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.true{
+    border: solid 3px red
+}

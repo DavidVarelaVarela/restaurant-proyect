@@ -1,8 +1,15 @@
 import axios from "axios";
 
 const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
-// const BASE_URL = "http://localhost:8000/api"
+//const BASE_URL = "http://localhost:8000/api"
 
+
+export function loginEmploy(password) {
+    return axios.post(`${BASE_URL}/account/login`, {
+        password
+    }
+    );
+}
 export function login(email, password) {
     return axios.post(`${BASE_URL}/account/login`, {
         email,
@@ -32,10 +39,9 @@ export function putBill(order, id) {
 
     });
 }
-export function payOrder(id, totalPrice, starsSelected) {
+export function payOrder(id, totalPrice, starsSelected, status, time) {
     return axios.put(`${BASE_URL}/order/${id}`, {
-        totalPrice, starsSelected
-
+        totalPrice, starsSelected, status, time
     });
 }
 export function getProducts({ productName }) {
@@ -44,4 +50,16 @@ export function getProducts({ productName }) {
 
 export function getBill({ order }) {
     return axios.get(`${BASE_URL}/bill/${order}`);
+}
+export function getTableStatus({ id }) {
+    return axios.get(`${BASE_URL}/table/status/${id}`);
+}
+export function getRating({ id }) {
+    return axios.get(`${BASE_URL}/order/feedback/${id}`);
+}
+
+export function getHelp({ id, help }) {
+    return axios.put(`${BASE_URL}/table/status/${id}`, {
+        help
+    });
 }
