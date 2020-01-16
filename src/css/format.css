@@ -18,6 +18,7 @@
     
     .products img {
     width: 200px;
+    max-height: 300px;
     }
     
     .products p {
@@ -36,3 +37,22 @@
         display: block;
         margin: 0 auto;
         } 
+
+.products button{
+    font-size: 0.7rem;
+    width: 4.5rem;
+    height: 1.5rem;
+    background-color:rgba(241, 129, 88, 0.7);
+    border:2px solid rgba(0, 0, 0, 0.4);
+    margin:0.5rem;
+    color: white;
+}
+
+@media (min-width: 600px) {
+    .products {
+    width: 400px;
+    }
+    .products img {
+    width: 400px;
+    }
+}

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../shared/context/cart-context";
 import { useOrder } from "../shared/context/order-context"
 
-
+import "../css/format.css"
 
 function Products() {
     const { order } = useOrder();
@@ -38,7 +38,7 @@ function Products() {
                 <Link className="btn shopping-cart" to="/cart">{totalItems && (<span>{totalItems}</span>)}</Link>
             </header>
             <main className="products">
-                <button className="product-menu"><Link to="/">Volver</Link></button>
+                <button className="products"><Link to="/">Volver</Link></button>
                 <ul>
                     {products.map(product => (
                         <li key={product.idProduct}>

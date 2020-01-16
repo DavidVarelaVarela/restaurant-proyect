@@ -54,7 +54,7 @@ main#home{
 }
 button.menu{
 width: 10rem;
-height: 2rem;
+height: 3rem;
 background-color:var(--orange);
 border: none;
 font-weight: bold;
@@ -68,12 +68,14 @@ ul.home{
 }
 button.product-menu{
 font-size: 0.7rem;
-width: 4rem;
-height: 1.5rem;
+width: 6rem;
+height: 2.5rem;
 background-color:rgba(241, 129, 88, 0.7);
 border:2px solid rgba(0, 0, 0, 0.4);
 margin:0.5rem;
 color: white;
 }
-
+footer > button.menu{
+    margin-left: 1rem;
+}
 

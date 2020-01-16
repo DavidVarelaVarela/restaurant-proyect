@@ -37,28 +37,28 @@ function ProductDetail() {
     }
 
     return (
-        <div className = "format">
-        <article className="product">
+        <div className="format">
             <header className="home">
                 <h1>Green House</h1>
                 <button className="btn call" onClick={e => { e.preventDefault(); callwaiter(order, help) }}>Ayuda</button>
                 <Link className="btn shopping-cart" to="/cart">{totalItems && (<span>{totalItems}</span>)}</Link>
             </header>
-            <button className="product-menu"><a
-                href="/"
-                onClick={e => {
-                    e.preventDefault();
-                    history.goBack();
-                }}
-            >
-                Volver
+            <section className="products">
+                <button className="product-menu"><a
+                    href="/"
+                    onClick={e => {
+                        e.preventDefault();
+                        history.goBack();
+                    }}
+                >
+                    Volver
             </a></button>
-            <h3>{product.name}</h3>
-            <img src={`/img/${product.idProduct}.jpeg`} width="300px" alt="foto de producto" />
-            <p>{product.description}</p>
-            <p>{`${product.price}€`}</p>
-            <button className="menu order" onClick={() => { addItemToCart(product) }}>Add to cart</button>
-        </article >
+                <h3>{product.name}</h3>
+                <img src={`/img/${product.idProduct}.jpeg`} width="300px" alt="foto de producto" />
+                <p>{product.description}</p>
+                <p>{`${product.price}€`}</p>
+                <button className="menu order" onClick={() => { addItemToCart(product) }}>Add to cart</button>
+            </section>
         </div>
     );
 }
