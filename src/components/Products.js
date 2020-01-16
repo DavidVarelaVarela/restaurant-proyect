@@ -31,7 +31,7 @@ function Products() {
         ))
     }
     return (
-        <React.Fragment>
+        <div className="format">
             <header className="home">
                 <h1>Green House</h1>
                 <button className="btn call" onClick={e => { e.preventDefault(); callwaiter(order, help) }}>Ayuda</button>
@@ -50,7 +50,7 @@ function Products() {
                     ))}
                 </ul>
             </main>
-        </React.Fragment>
+        </div>
     );
 }
 

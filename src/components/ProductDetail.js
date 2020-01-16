@@ -37,6 +37,7 @@ function ProductDetail() {
     }
 
     return (
+        <div className = "format">
         <article className="product">
             <header className="home">
                 <h1>Green House</h1>
@@ -58,6 +59,7 @@ function ProductDetail() {
             <p>{`${product.price}€`}</p>
             <button className="menu order" onClick={() => { addItemToCart(product) }}>Add to cart</button>
         </article >
+        </div>
     );
 }
 
