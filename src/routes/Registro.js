@@ -28,7 +28,7 @@ export function Registro() {
     };
     return (
         <main className="registro reg" >
-            <h3>Introduce tus datos</h3>
+            <h2>Introduce tus datos</h2>
             <form onSubmit={handleSubmit(handleSignUp)}>
                 <fieldset className={`form-control ${getColor("name")}`}>
                     <label>Name</label>

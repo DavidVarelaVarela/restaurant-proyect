@@ -23,7 +23,8 @@ header h1  {
     color: whitesmoke;
 }
 h1{
-    font-family:"Advent Pro" ;
+    font-family:"Advent Pro";
+    font-size: 2rem;
 }
 h2,h3,h4,h5,h6{
     font-family:"Alegreya Sans" ;
@@ -32,7 +33,9 @@ h2,h3,h4,h5,h6{
 a,a:visited{
     text-decoration-line: none;
     color:inherit;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    text-align: center;
+    
 }
 form{
     display: flex;
@@ -53,7 +56,7 @@ input,a {
     cursor: pointer;
     font-family: Raleway, sans-serif;
     border-radius: 1rem 1rem;
-    font-family:"Advent Pro"
+    
     
     
     
@@ -74,4 +77,17 @@ span.errorMessage{
 
 li{
     list-style: none;
+}
+
+
+@media (min-width: 500px) {
+    h1{
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 900px) {
+    h1{
+        font-size: 5rem;
+    }
 }

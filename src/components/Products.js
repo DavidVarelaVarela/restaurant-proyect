@@ -15,8 +15,8 @@ function Products() {
     const params = useParams();
     const [products, setProducts] = useState([]);
 
-    const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
-    //const BASE_URL = "http://localhost:8000/api"
+    //const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+    const BASE_URL = "http://localhost:8000/api"
 
 
     useEffect(() => {
@@ -37,8 +37,7 @@ function Products() {
                 <button className="btn call" onClick={e => { e.preventDefault(); callwaiter(order, help) }}>Ayuda</button>
                 <Link className="btn shopping-cart" to="/cart">{totalItems && (<span>{totalItems}</span>)}</Link>
             </header>
-            <main className="products">
-                <button className="products"><Link to="/">Volver</Link></button>
+            <section className="products">
                 <ul>
                     {products.map(product => (
                         <li key={product.idProduct}>
@@ -49,7 +48,8 @@ function Products() {
                         </li>
                     ))}
                 </ul>
-            </main>
+                <button className="products"><Link to="/">Volver</Link></button>
+            </section>
         </div>
     );
 }

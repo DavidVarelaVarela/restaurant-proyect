@@ -15,6 +15,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 1rem;
+    
 
 }
 
@@ -23,7 +24,7 @@
     cursor: pointer;
     width: 2em;
     height: 2em;
-    background-color: white;
+    background-color: rgb(207, 205, 205);
     -webkit-clip-path: polygon(
     50% 0%,
     63% 38%,
@@ -51,7 +52,7 @@
 }
 
 .star.selected {
-    background-color: green;
+    background-color:rgb(8, 54, 2);
 }
 .confirmation {
     margin-bottom:  1rem;
