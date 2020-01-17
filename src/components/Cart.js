@@ -24,7 +24,6 @@ function Cart() {
     useEffect(() => { verifyOrder() }, [verifyOrder])
     const {
         cart,
-        totalPrice,
         totalItems,
         removeItemFromCart,
         addItemToCart,
@@ -65,11 +64,11 @@ function Cart() {
                             <li className="order" key={item.idProduct}>
                                 <article className="order">
                                     <h3><Link to={`/product/${item.idProduct}`}>{`${item.name} `}</Link></h3>
-                                    <p> Precio unidad: {`${item.price}€`}</p>
-                                    <p>Cantidad: {item.quantity}</p>
+                                    <p className="order"> Precio unidad: {`${item.price}€`}</p>
+                                    <p className="order">Cantidad: {item.quantity}</p>
                                 </article>
                                 <aside className="order">
-                                    <button className="btn order "
+                                    <button className=" order "
                                         onClick={e => {
                                             e.preventDefault();
                                             addItemToCart(item);
@@ -77,7 +76,7 @@ function Cart() {
                                     >
                                         +
                             </button>
-                                    <button className="btn order "
+                                    <button className=" order "
                                         onClick={e => {
                                             e.preventDefault();
                                             removeItemFromCart(item);
@@ -85,7 +84,7 @@ function Cart() {
                                     >
                                         -
                             </button>
-                                    <button className="btn order remove"
+                                    <button className=" order remove"
                                         onClick={e => {
                                             e.preventDefault();
                                             removeItem(item.idProduct);
@@ -97,13 +96,11 @@ function Cart() {
                             </li>
                         ))}
                     </ul>
-                    <p>IVA = {`${Number((totalPrice / 1.21).toFixed(2))}€`}</p>
-                    <p>Total = {`${Number(totalPrice.toFixed(2))}€`}</p>
                 </section>
                 <footer className="order">
                     {
                         totalItems > 0 && !order && (
-                            <button className="menu order" onClick={(e) => {
+                            <button className="pay " onClick={(e) => {
                                 e.preventDefault();
                                 makeOrder(cart);
                                 resetCart();
@@ -114,7 +111,7 @@ function Cart() {
                     {
                         totalItems > 0 && order && (
                             <React.Fragment>
-                                <button className="menu order" onClick={(e) => {
+                                <button className="pay " onClick={(e) => {
                                     e.preventDefault();
                                     updateOrder(cart, order)
                                     resetCart();

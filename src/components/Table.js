@@ -15,8 +15,8 @@ export function Table({ order, callwaiter }) {
     const onCheckedChange = () => setChecked(!checked)
     const onChekedPay = () => setPay(!pay)
 
-    const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
-    //const BASE_URL = "http://localhost:8000/api"
+    //const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+    const BASE_URL = "http://localhost:8000/api"
 
     useEffect(() => {
         axios

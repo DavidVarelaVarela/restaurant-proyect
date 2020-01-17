@@ -3,51 +3,60 @@
     display: block;
     margin: 0 auto;
     } 
-    div.format{
-        background-color: bisque;
-    }
+div.format{
+    min-height: 100vh;
+    background-color: bisque;
+}
     /*Ordenador width 400px img 400px*/
     
-    .products a {
+.products a {
     font-size: 14px;
     text-align: center;
     display: block;
     text-transform: uppercase;
-    margin-bottom: 10px;
-    }
     
-    .products img {
+}
+    
+.products img {
+    margin-top: 1rem;
     width: 200px;
     max-height: 300px;
-    }
+}
     
-    .products p {
+.products p {
     text-align: center;
-    }
+}
     
-    .products span {
+span.products  {
     text-align: right;
     display: block;
     font-weight: 700;
     margin-bottom: 30px;
-    }
+}
+section.products{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
-    .product {
-        width: 200px;
-        display: block;
-        margin: 0 auto;
-        } 
-
-.products button{
+} 
+button.products {
     font-size: 0.7rem;
-    width: 4.5rem;
-    height: 1.5rem;
-    background-color:rgba(241, 129, 88, 0.7);
+    width: 6rem;
+    height: 2rem;
+    background-color:rgba(241, 129, 88, 0.9);
     border:2px solid rgba(0, 0, 0, 0.4);
     margin:0.5rem;
-    color: white;
+    color: black;
+    text-transform: uppercase
+    
+    
 }
 
+footer.products{
+    display: flex;
+    justify-content: space-around;
+}
 @media (min-width: 600px) {
     .products {
     width: 400px;
@@ -55,4 +64,10 @@
     .products img {
     width: 400px;
     }
+    .products button{
+        width: 10rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
 }
+

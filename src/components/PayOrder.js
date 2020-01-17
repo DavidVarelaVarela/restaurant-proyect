@@ -51,18 +51,20 @@ function PayOrder() {
                             <li className="order" key={item.idProduct}>
                                 <article className="order">
                                     <h3><Link to={`/product/${item.idProduct}`}>{`${item.name} `}</Link></h3>
-                                    <p> Precio unidad: {`${item.price}€`}</p>
-                                    <p>Cantidad: {item.quantity}</p>
+                                    <p className="order"> Precio unidad: {`${item.price}€`}</p>
+                                    <p className="order">Cantidad: {item.quantity}</p>
                                 </article>
                             </li>
                         ))}
                     </ul>
-                    <p>IVA = {`${Number((totalPrice - (totalPrice / 1.10)).toFixed(2))}€`}</p>
-                    <p>Total = {`${Number(totalPrice.toFixed(2))}€`}</p>
+                    <div className="order">
+                        <p>IVA = {`${Number((totalPrice - (totalPrice / 1.10)).toFixed(2))}€`}</p>
+                        <p>Total = {`${Number(totalPrice.toFixed(2))}€`}</p>
+                    </div>
                 </section>
                 <footer className="order">
-                    <button className="menu order" onClick={(e) => { e.preventDefault(); setPay(true) }}>Pagar con tarjeta</button>
-                    <button className="menu order" onClick={(e) => { e.preventDefault(); setPay(true) }}>Pagar con efectivo</button>
+                    <button className="pay" onClick={(e) => { e.preventDefault(); setPay(true) }}>Pagar con tarjeta</button>
+                    <button className="pay" onClick={(e) => { e.preventDefault(); setPay(true) }}>Pagar con efectivo</button>
                 </footer>
             </main>}
             {pay && <Confirmation totalPrice={totalPrice} order={order} />}

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
-//const BASE_URL = "http://localhost:8000/api"
+//const BASE_URL = "https://solucioname-el-servicio.herokuapp.com/api"
+const BASE_URL = "http://localhost:8000/api"
 
 
 export function loginEmploy(password) {

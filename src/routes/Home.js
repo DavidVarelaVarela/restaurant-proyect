@@ -54,9 +54,9 @@ export function Home() {
                         </li>
                     </ul>
                 </section>
-                {order && <button className="menu order" onClick={() => history.push("/pedido")}>Pagar el pedido</button>}
+                {order && <button className=" pay" onClick={() => history.push("/pedido")}>Pagar el pedido</button>}
             </main>
-            {!order && <footer><button className="btn menu" onClick={e => { e.preventDefault(); logOut() }}> Cerrar Sesión</button></footer>}
+            {!order && <footer><button className="pay" onClick={e => { e.preventDefault(); logOut() }}> Cerrar Sesión</button></footer>}
         </div >
     );
 }
