@@ -1,5 +1,5 @@
 div.employeer{
-    height: 100vh;
+    min-height: 100vh;
     background-color:rgba(134, 146, 140, 0.5);
 }
 header.employeer{
